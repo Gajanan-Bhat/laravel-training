@@ -1,16 +1,4 @@
-<x-layout>
-@include('_posts-header')
-
-        <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
-        <x-post-featured-card :post="$posts[0]" />
-
-            <div class="lg:grid lg:grid-cols-2">
-                <x-post-card />
-                <x-post-card />
-            </div>
-
-            <div class="lg:grid lg:grid-cols-3">
-                <article
+<article
                     class="transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
                     <div class="py-6 px-5">
                         <div>
@@ -49,27 +37,25 @@
                                 <p class="mt-4">
                                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                                 </p>
-                                
+                                <footer class="flex justify-between items-center mt-8">
+                                <div class="flex items-center text-sm">
+                                    <img src="./images/lary-avatar.svg" alt="Lary avatar">
+                                    <div class="ml-3">
+                                        <h5 class="font-bold">Lary Laracore</h5>
+                                        <h6>Mascot at Laracasts</h6>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <a href="#"
+                                       class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
+                                    >Read More</a>
+                                </div>
+                            </footer>
                             </div>
                             
-
-  <!-- @foreach ($posts as $post)
-  <article>
-     <h1>
-      <a href="/posts/{{$post->slug}}">
-         {{$post->title}}
-      </a>
-    </h1>
-    <p>
-    By <a href ="/authors/{{ $post->author->username}}">{{ $post->author->name}}</a> in <a href="/categories/{{$post->category->slug}}">{{$post->category->name}}</a>
-    </p>
-     <div>
-       {{ $post->excerpt}}
-     </div>
-  </article> 
-  @endforeach -->
-</x-layout>
-
-
-
+                            </div>
+                            </div>
+                            </article>
+                            
 

@@ -16,55 +16,22 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        User::truncate();
-        Category::truncate();
-        Post::truncate();
+   
+        // User::truncate();
+        // Category::truncate();
+        // Post::truncate();
         // \App\Models\User::factory(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
-        $user = User::factory()->create();
-        Category::create([
-           $personal= 'name' => 'Personal',
-            'slug' => 'personal'
+        public function run()
+        {
+        $user = User::factory()->create([
+            'name' => 'John Doe'
         ]);
-
-       $family= Category::create([
-            'name' => 'Family',
-            'slug' => 'family'
+        Post::factory(5)->create([
+                'user_id' => $user->id
         ]);
-
-       $work =  Category::create([
-           'name' => 'Work',
-            'slug' => 'work'
-        ]);
-
-        Post::create([
-            'user_id' => $user->id,
-            'category_id' => $family->id, 
-            'title' => 'My Family Post',
-            'slug' => 'my-family-post',
-            'excerpt' => strip_tags('<p>Lorem ipsum dolar sit amet</p>'),
-            'body' =>strip_tags('<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-             in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-             mollit anim id est laborum.</p>')
-        ]);
-
-        Post::create([
-            'user_id' => $user->id,
-            'category_id' => $work->id, 
-            'title' => 'My Work Post',
-            'slug' => 'my-work-post',
-            'excerpt' => strip_tags('<p>Lorem ipsum dolar sit amet</p>'),
-            'body' => strip_tags('<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-             in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-             mollit anim id est laborum.</p>')
-        ]);
-    }
-}
+     }
+ }
