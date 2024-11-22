@@ -19,4 +19,11 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     } 
+    
+public function index()
+{
+    $posts = Post::latest()->get(); // Example: Retrieve all posts ordered by creation date.
+    return view('your-view-name', compact('posts'));
+}
+
 }
